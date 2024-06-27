@@ -18,13 +18,23 @@ def task1():
 
 
 def task2():
-    missing_digits = {}
-    binary_number = "1100"
+    for x in range(2):  # Пропущенная двоичная цифра
+        for y in range(10):  # Пропущенная десятичная цифра
+            for z in range(8):  # Первая пропущенная восьмеричная цифра
+                for w in range(8):  # Вторая пропущенная восьмеричная цифра
+                    binary_str = f"1100.{x}"
+                    decimal_str = f"1{y}.5"
+                    octal_str = f"{z}4.{w}"
 
-    binary_int = int(binary_number, 2)
+                    # Преобразование в десятичную систему
+                    decimal_from_binary = int(binary_str.replace('.', ''), 2) / (2 ** len(binary_str.split('.')[1]))
+                    decimal_from_decimal = float(decimal_str)
+                    decimal_from_octal = int(octal_str.replace('.', ''), 8) / (8 ** len(octal_str.split('.')[1]))
 
-    missing_digits['binary'] = binary_int
-    return missing_digits
+                    # Проверка совпадения чисел
+                    if abs(decimal_from_binary - decimal_from_decimal) < 1e-6 and abs(
+                            decimal_from_decimal - decimal_from_octal) < 1e-6:
+                        return f"1100.{x}(2) = 1{y}.5(10) = {z}4.{w}(8)"
 
 
 def task3():
@@ -91,9 +101,8 @@ def main():
     print(f"298_{10} = {results1[8]}_{8}")
 
     # Задание 2
-    results2 = task2()
     print("\nЗадание 2:")
-    print(f"1100_2 = {results2['binary']}_10")
+    print(task2())
 
     # Задание 3
     results3 = task3()
@@ -110,6 +119,8 @@ def main():
     result5 = task5()
     print("\nЗадание 5:")
     print(f"1 + 2/3 + 11/27 = {result5} (в троичной системе счисления)")
+
+    print('\n\nЗадание выполнил студент 1-го курса\n2023-ФГиИБ-ПИ-1б\nКорязов Дмитрий')
 
 if __name__ == "__main__":
     main()

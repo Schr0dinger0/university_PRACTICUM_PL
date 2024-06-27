@@ -53,7 +53,7 @@ class Ui_MainWindow(object):
 
         # Масштабируем изображение
         pixmap = QtGui.QPixmap(
-            "/Integral/20733991_278480342.pdf-15.jpg")
+            "20733991_278480342.pdf-15.jpg")
         scaled_pixmap = pixmap.scaled(350, 350, QtCore.Qt.KeepAspectRatio)
         self.label_6.setPixmap(scaled_pixmap)
 

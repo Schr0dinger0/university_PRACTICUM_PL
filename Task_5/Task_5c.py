@@ -29,3 +29,5 @@ hx = 0.2
 
 tabulator = FunctionTabulator(x0, xn, hx)
 tabulator.tabulate()
+
+print('\n\nЗадание выполнил студент 1-го курса\n2023-ФГиИБ-ПИ-1б\nКорязов Дмитрий')
